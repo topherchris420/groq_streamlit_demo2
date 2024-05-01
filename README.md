@@ -1,6 +1,6 @@
 # Groq Chat Streamlit App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://groqdemo.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://woodyard.streamlit.app/)
 
 ![Demo App Screenshot](images/groq_demo.png)
 
