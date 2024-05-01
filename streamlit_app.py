@@ -14,7 +14,7 @@ def icon(emoji: str):
     )
 
 
-icon("📐")
+icon("🦙")
 
 st.subheader("Vers3Dynamics Virtual Assistant, Powered by Groq", divider="rainbow", anchor=False)
 
