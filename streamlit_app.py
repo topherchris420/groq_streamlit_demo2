@@ -2,8 +2,8 @@ import streamlit as st
 from typing import Generator
 from groq import Groq
 
-st.set_page_config(page_icon="💬", layout="wide",
-                   page_title="Groq Goes Brrrrrrrr...")
+st.set_page_config(page_icon="💡", layout="wide",
+                   page_title="Groq")
 
 
 def icon(emoji: str):
@@ -14,9 +14,9 @@ def icon(emoji: str):
     )
 
 
-icon("🏎️")
+icon("😎")
 
-st.subheader("Groq Chat Streamlit App", divider="rainbow", anchor=False)
+st.subheader("Vers3Dynamics Virtual Assistant, Powered by Groq", divider="rainbow", anchor=False)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
@@ -70,7 +70,7 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🤖' if message["role"] == "assistant" else '👨‍💻'
+    avatar = '🤖' if message["role"] == "assistant" else '👨🏾‍💻'
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -82,10 +82,10 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
             yield chunk.choices[0].delta.content
 
 
-if prompt := st.chat_input("Enter your prompt here..."):
+if prompt := st.chat_input("The answer to the meaning of life is..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    with st.chat_message("user", avatar='👨‍💻'):
+    with st.chat_message("user", avatar='👨🏾‍💻'):
         st.markdown(prompt)
 
     # Fetch response from Groq API
