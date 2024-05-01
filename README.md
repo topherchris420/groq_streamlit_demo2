@@ -1,4 +1,4 @@
-# Groq Chat Streamlit App
+# Groq Vers3Dynamics Streamlit App
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://woodyard.streamlit.app/)
 
