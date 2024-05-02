@@ -48,6 +48,10 @@ with col1:
         format_func=lambda x: models[x]["name"],
         index=4  # Default to mixtral
     )
+  
+# Add a video
+st.video("https://drive.google.com/file/d/1w_z-i65IDmzreNwuvrqSkQgoGCxxPu1s/view?usp=drivesdk", format="video/mp4", start_time=0)
+
 
 # Detect model change and clear chat history if model has changed
 if st.session_state.selected_model != model_option:
