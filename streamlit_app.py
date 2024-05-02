@@ -1,5 +1,4 @@
 import streamlit as st
-st.config.set_option('media.embed', True)
 from typing import Generator
 from groq import Groq
 
