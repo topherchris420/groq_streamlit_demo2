@@ -108,7 +108,7 @@ if prompt := st.chat_input("The answer to the meaning of life is..."):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(e, icon="🚨")
+        st.error(e, icon="🚨🐢")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):
