@@ -104,7 +104,7 @@ if prompt := st.chat_input("The answer to the meaning of life is..."):
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🤖"):
+        with st.chat_message("assistant", avatar="😎"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
