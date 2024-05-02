@@ -102,9 +102,6 @@ with col1:
         index=4  # Default to mixtral
     )
   
-# Add a video
-st.video("", format="video/mp4", start_time=0)
-
 
 # Detect model change and clear chat history if model has changed
 if st.session_state.selected_model != model_option:
