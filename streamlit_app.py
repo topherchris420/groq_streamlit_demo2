@@ -104,7 +104,7 @@ with col1:
     )
   
 # Add a video
-st.video("internal storage/Download/me.mp4", format="video/mp4", start_time=0)
+st.video("internalstorage/Download/me.mp4", format="video/mp4", start_time=0)
 
 
 # Detect model change and clear chat history if model has changed
