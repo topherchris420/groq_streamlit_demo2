@@ -172,7 +172,7 @@ if prompt := st.chat_input("The answer to the meaning of life is..."):
         # Handle the case where full_response is not a string
         combined_response = "\n".join(str(item) for item in full_response)
         st.session_state.messages.append(
-            {"role": "assistant", "content": combined_response})", format="video/mp4", start_time=0)
+            {"role": "assistant", "content": combined_response})
 
 
 # Detect model change and clear chat history if model has changed
