@@ -82,7 +82,7 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
             yield chunk.choices[0].delta.content
 
 
-if prompt := st.chat_input("The answer to the meaning of life is..."):
+if prompt := st.chat_input("mitpress.vercel.app"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("user", avatar='👨🏾‍💻'):
