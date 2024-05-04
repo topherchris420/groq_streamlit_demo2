@@ -65,7 +65,7 @@ with col2:
         # Default value or max allowed if less
         value=min(32768, max_tokens_range),
         step=512,
-        help=f"Adjust the maximum number of tokens (words) for the model's response. Max for selected model🚀: {max_tokens_range}"
+        help=f"Adjust the maximum number of 🪙 (words) for the model's response. Max for selected model🚀: {max_tokens_range}"
     )
 
 # Display chat messages from history on app rerun
