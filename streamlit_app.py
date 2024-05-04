@@ -59,7 +59,7 @@ max_tokens_range = models[model_option]["tokens"]
 with col2:
     # Adjust max_tokens slider dynamically based on the selected model
     max_tokens = st.slider(
-        "🏎️ Max Tokens:",
+        "Max Tokens🪙:",
         min_value=512,  # Minimum value to allow some flexibility
         max_value=max_tokens_range,
         # Default value or max allowed if less
