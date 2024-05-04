@@ -86,10 +86,8 @@ if prompt := st.chat_input("the answer to the meaning of life is..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("user", avatar='👨🏾‍💻'):
+      st.write("😊 Thanks for choosing to chat with me! How may I assist you today?")
         st.markdown(prompt)
-
-  st.write("😊 Thanks for choosing to chat with me! How may I assist you today?")
-
 
     # Fetch response from Groq API
     try:
