@@ -15,7 +15,7 @@ def icon(emoji: str):
 
 
 icon("🦙")
-
+st.write(f'[Vers3Dynamics](https://mitpress.vercel.app)', unsafe_allow_html=True)
 st.subheader("Vers3Dynamics Virtual Assistant, Powered by Groq", divider="rainbow", anchor=False)
 
 client = Groq(
