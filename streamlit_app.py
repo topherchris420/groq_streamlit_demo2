@@ -15,7 +15,7 @@ def icon(emoji: str):
 
 
 icon("🦙")
-st.write(f'[Vers3Dynamics](https://mitpress.vercel.app)', unsafe_allow_html=True)
+st.write(f'[Unveiling Vers3Dynamics](https://woodyard.dappling.network)', unsafe_allow_html=True)
 st.subheader("Virtual Assistants, Powered by Groq", divider="rainbow", anchor=False)
 
 client = Groq(
