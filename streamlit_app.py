@@ -15,8 +15,8 @@ def icon(emoji: str):
 
 
 icon("👽")
-st.markdown(f'<a href="https://woodyard.dappling.network" style="text-decoration:none; color: #0e76a8;"><h2>Unveiling Vers3Dynamics</h2></a>', unsafe_allow_html=True)
-st.subheader("Meet Your Virtual Assistants, Powered by Groq 🚀", anchor=False)
+st.markdown(f'<a href="https://woodyard.dappling.network" style="text-decoration:none; color: #0e76a8;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
+st.subheader("Meet Your Virtual Assistants, Powered by Groq 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
 st.image("images/animism.jpg", caption="Meet your digital companions!", width=200)
@@ -71,7 +71,7 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🐶' if message["role"] == "assistant" else '🧑🏾‍💻'
+    avatar = '🤖' if message["role"] == "assistant" else '🧑🏾‍💻'
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -105,7 +105,7 @@ if prompt := st.chat_input("What's on your mind?"):
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🐶"):
+        with st.chat_message("assistant", avatar="🤖"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
