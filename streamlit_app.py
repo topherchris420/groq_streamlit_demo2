@@ -1,4 +1,7 @@
 import streamlit as st
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+import numpy as np
 from typing import Generator
 from groq import Groq
 
@@ -17,6 +20,29 @@ def icon(emoji: str):
 icon(" 👽 ")
 st.write(f'[Unveiling Vers3Dynamics](https://woodyard.dappling.network)', unsafe_allow_html=True)
 st.subheader("Virtual Assistants, Powered by Groq", divider="rainbow", anchor=False)
+
+def animate_sine_wave():
+    fig, ax = plt.subplots()
+    ax.set_xlim(0, 2 * np.pi)
+    ax.set_ylim(-1.5, 1.5)
+    line, = ax.plot([], [], lw=3)
+
+    def init():
+        line.set_data([], [])
+        return line,
+
+    def animate(i):
+        x = np.linspace(0, 2 * np.pi, 1000)
+        y = np.sin(x + i * 0.1)
+        line.set_data(x, y)
+        return line,
+
+    anim = FuncAnimation(fig, animate, init_func=init, frames=200, interval=20, blit=True)
+    return fig, anim
+
+st.title('Animated Sine Wave')
+fig, anim = animate_sine_wave()
+st.pyplot(fig)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
