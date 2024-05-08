@@ -19,7 +19,7 @@ st.markdown(f'<a href="https://woodyard.dappling.network" style="text-decoration
 st.subheader("Meet Your Virtual Assistants, Powered by Groq 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
-st.image("images/animism.jpg", caption="Meet your digital companions!", width=200)
+st.image("images/animism.jpg", caption="every line drawn is a bridge to tomorrow", width=200)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
