@@ -1,7 +1,8 @@
 import streamlit as st
 from typing import Generator
 from groq import Groq
-
+from textblob import TextBlob
+import emoji
 st.set_page_config(page_icon="💡", layout="wide",
                    page_title="Vers3Dynamics")
 
@@ -83,6 +84,25 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
     for chunk in chat_completion:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
+
+def analyze_sentiment(text: str):
+    """Analyze the sentiment of the input text and return emoji based on polarity."""
+    analysis = TextBlob(text)
+    if analysis.sentiment.polarity > 0.1:
+        return emoji.emojize(":smile:", use_aliases=True)  # Positive sentiment
+    elif analysis.sentiment.polarity < -0.1:
+        return emoji.emojize(":disappointed:", use_aliases=True)  # Negative sentiment
+    else:
+        return emoji.emojize(":neutral_face:", use_aliases=True)  # Neutral sentiment
+
+def add_emotional_response(sentiment: str, response: str):
+    """Add an emotional touch to the response based on sentiment."""
+    if sentiment == emoji.emojize(":smile:", use_aliases=True):
+        return f"{sentiment} I'm glad to hear that! {response}"
+    elif sentiment == emoji.emojize(":disappointed:", use_aliases=True):
+        return f"{sentiment} Oh no, that sounds tough. {response}"
+    else:
+        return f"{response} {sentiment}"
 
 
 if prompt := st.chat_input("the answer to the meaning of life is..."):
