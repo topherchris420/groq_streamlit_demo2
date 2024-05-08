@@ -18,6 +18,9 @@ icon(" 👽 ")
 st.write(f'[Unveiling Vers3Dynamics](https://woodyard.dappling.network)', unsafe_allow_html=True)
 st.subheader("Virtual Assistants, Powered by Groq", divider="rainbow", anchor=False)
 
+# Add a picture
+st.image("images/animism.jpg", width=200)
+
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
 )
