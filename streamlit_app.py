@@ -14,12 +14,12 @@ def icon(emoji: str):
     )
 
 
-icon(" 👽 ")
-st.write(f'[Unveiling Vers3Dynamics](https://woodyard.dappling.network)', unsafe_allow_html=True)
-st.subheader("Virtual Assistants, Powered by Groq", divider="rainbow", anchor=False)
+icon("👽")
+st.markdown(f'<a href="https://woodyard.dappling.network" style="text-decoration:none; color: #0e76a8;"><h2>Unveiling Vers3Dynamics</h2></a>', unsafe_allow_html=True)
+st.subheader("Meet Your Virtual Assistants, Powered by Groq 🚀", anchor=False)
 
-# Add a picture
-st.image("images/animism.jpg", width=200)
+# Add a picture with a caption
+st.image("images/animism.jpg", caption="Meet your digital companions!", width=200)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
@@ -49,7 +49,7 @@ with col1:
         "Connect with the perfect AI:",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
-        index=4  # Default to mixtral
+        index=4  # Default to Mixtral
     )
 
 # Detect model change and clear chat history if model has changed
@@ -60,20 +60,18 @@ if st.session_state.selected_model != model_option:
 max_tokens_range = models[model_option]["tokens"]
 
 with col2:
-    # Adjust max_tokens slider dynamically based on the selected model
     max_tokens = st.slider(
-        "Max Tokens🪙:",
-        min_value=512,  # Minimum value to allow some flexibility
+        "Max Tokens 🪙:",
+        min_value=512,
         max_value=max_tokens_range,
-        # Default value or max allowed if less
         value=min(32768, max_tokens_range),
         step=512,
-        help=f"Adjust the maximum number of 🪙 (words) for the model's response. Max for selected model🚀: {max_tokens_range}"
+        help=f"Adjust the maximum number of tokens for the model's response. Max for selected model: {max_tokens_range}"
     )
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🐶' if message["role"] == "assistant" else '👨🏾‍💻'
+    avatar = '🐶' if message["role"] == "assistant" else '🧑🏾‍💻'
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -85,10 +83,10 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
             yield chunk.choices[0].delta.content
 
 
-if prompt := st.chat_input("the answer to the meaning of life is..."):
+if prompt := st.chat_input("What's on your mind?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    with st.chat_message("user", avatar='👨🏾‍💻'):
+    with st.chat_message("user", avatar='🧑🏾‍💻'):
         st.markdown(prompt)
 
     # Fetch response from Groq API
@@ -111,7 +109,7 @@ if prompt := st.chat_input("the answer to the meaning of life is..."):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(e, icon="🚨🐢")
+        st.error(f"Oops! Something went wrong: {e}", icon="🐢🚨")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):
