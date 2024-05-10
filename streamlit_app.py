@@ -19,7 +19,7 @@ st.markdown(f'<a href="https://woodyard.dappling.network" style="text-decoration
 st.subheader("Meet Your Virtual Assistants, Powered by Groq 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
-st.image("images/animism.jpg", caption="every line drawn is a bridge to tomorrow", width=200)
+st.image("images/animism.jpg", caption="What can I help you with?", width=200)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
@@ -71,7 +71,7 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🤖' if message["role"] == "assistant" else '🧑🏾‍💻'
+    avatar = '🐶' if message["role"] == "assistant" else '🧑🏾‍💻'
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -83,7 +83,7 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
             yield chunk.choices[0].delta.content
 
 
-if prompt := st.chat_input("What's on your mind?"):
+if prompt := st.chat_input("How can I help you today?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("user", avatar='🧑🏾‍💻'):
@@ -105,7 +105,7 @@ if prompt := st.chat_input("What's on your mind?"):
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🤖"):
+        with st.chat_message("assistant", avatar="🐶"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
