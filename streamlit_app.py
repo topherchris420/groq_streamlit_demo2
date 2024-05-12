@@ -2,7 +2,7 @@ import streamlit as st
 from typing import Generator
 from groq import Groq
 
-st.set_page_config(page_icon="💡", layout="wide",
+st.set_page_config(page_icon="coast_chris.png", layout="wide",
                    page_title="Vers3Dynamics")
 
 
