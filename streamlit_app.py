@@ -127,3 +127,5 @@ if prompt := st.chat_input("I'm James, how can I help you today?"):
             {"role": "assistant", "content": combined_response})
         st.session_state.messages.append(
             {"role": "assistant", "content": combined_response})
+
+system_prompt = self._get_system_prompt()
