@@ -29,12 +29,12 @@ def icon(emoji: str):
     )
 
 
-icon("🧑🏼‍🎨")
-st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
-st.subheader("Leonardo da Vinci, Reimagined. Powered by Groq."🚀", divider="rainbow", anchor=False)
+icon("🧓🏼")
+st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>Leonardo da Vinci, Reimagined by Vers3Dynamics</h2></a>', unsafe_allow_html=True)
+st.subheader("Salve, sono Leonardo da Vinci📐. Iniziamo un viaggio di scoperta, dove i confini dell'immaginazione incontrano la precisione della scienza.", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
-st.image("images/WelcomeHometitle.png", caption="What can I help you with?", width=200)
+st.image("images/kisspng-leonardo-da-vinci-portrait-art-computer-icons-clip-5b13c50b8802a9.7780784915280222835571.jpg", caption="What can I help you with?", width=200)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
@@ -76,7 +76,7 @@ max_tokens_range = models[model_option]["tokens"]
 
 with col2:
     max_tokens = st.slider(
-        "Max Tokens 🪙:",
+        "Max Tokens 🎨:",
         min_value=512,
         max_value=max_tokens_range,
         value=min(32768, max_tokens_range),
@@ -86,7 +86,7 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🐶' if message["role"] == "assistant" else '🧑🏾‍💻'
+    avatar = '🧬' if message["role"] == "assistant" else '🧑🏾‍💻'
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -128,7 +128,7 @@ if prompt := st.chat_input("Hi! I'm James, your FurBuddy. How may I help you?", 
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🐶"):
+        with st.chat_message("assistant", avatar="🧬"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
