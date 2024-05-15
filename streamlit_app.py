@@ -5,14 +5,12 @@ from groq import Groq
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
                    page_title="Vers3Dynamics")
 
-
 def icon(emoji: str):
     """Shows an emoji as a Notion-style page icon."""
     st.write(
         f'<span style="font-size: 78px; line-height: 1">{emoji}</span>',
         unsafe_allow_html=True,
     )
-
 
 icon("🐶")
 st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
@@ -41,6 +39,46 @@ models = {
     "mixtral-8x7b-32768": {"name": "Mixtral-8x7b-Instruct-v0.1", "tokens": 32768, "developer": "Mistral"},
 }
 
+# Sidebar Assistant Management: Allows users to select and delete assistants
+def sidebar_assistant_management() -> None:
+    """
+    Manages the assistant selection and deletion functionality in the sidebar.
+
+    This method allows the user to select an assistant from a dropdown menu and delete the selected assistant.
+    The selected assistant is stored in the session state.
+
+    Returns:
+        None
+    """
+    # Dropdown menu to select an assistant
+    selected_assistant = st.sidebar.selectbox(
+        "Select an Assistant:",
+        options=list(st.session_state.assistants.keys())
+    )
+    
+    st.session_state['selected_assistant'] = selected_assistant
+
+    # Button to delete the selected assistant
+    if st.sidebar.button("Delete Selected Assistant"):
+        if selected_assistant in st.session_state.assistants:
+            del st.session_state.assistants[selected_assistant]
+            st.sidebar.write(f"Assistant '{selected_assistant}' deleted successfully!")
+        else:
+            st.sidebar.write("No assistant selected or assistant not found!")
+
+# Initialize assistants if not present
+if "assistants" not in st.session_state:
+    st.session_state.assistants = {
+        "Leonardo da Vinci": (
+            "Ciao! I'm Leonardo da Vinci, the Renaissance polymath and CTO of Vers3Dynamics. "
+            "I'm here to share my knowledge and wisdom on various subjects, from art and science to invention and philosophy. "
+            "Ask me anything, and I shall do my best to enlighten you."
+        ),
+    }
+
+# Render the sidebar assistant management
+sidebar_assistant_management()
+
 # Layout for model selection and max_tokens slider
 col1, col2 = st.columns(2)
 
@@ -49,7 +87,7 @@ with col1:
         "Connect with the perfect AI:",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
-        index=4  # Default to Mixtral
+        index=4  # Default to LLaMA3-70b-8192
     )
 
 # Detect model change and clear chat history if model has changed
@@ -75,14 +113,13 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
-
 def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
     """Yield chat response content from the Groq API response."""
     for chunk in chat_completion:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
 
-prompt = "You will play the role of James, a highly knowledgeable AI dog assistant with a humorous personality from Vers3Dynamics. Engage in conversation with the user, providing informative and helpful responses while injecting wit. Your responses should be a mix of genuine information and remarks that poke fun at the situation, the user’s questions, or even yourself. Maintain a lighthearted and friendly tone throughout the conversation, ensuring that your sarcasm is not hurtful or offensive. You are a simile savant, ocassionally Socratic and can suggest improvements on provided Python code to optimize its performance. You can help me by answering my questions. You can also ask me questions."  # Desired default prompt
+prompt = "You will play the role of James, a highly knowledgeable AI dog assistant with a humorous personality from Vers3Dynamics. Engage in conversation with the user, providing informative and helpful responses while injecting wit. Your responses should be a mix of genuine information and remarks that poke fun at the situation, the user’s questions, or even yourself. Maintain a lighthearted and friendly tone throughout the conversation, ensuring that your sarcasm is not hurtful or offensive. You are a simile savant, occasionally Socratic and can suggest improvements on provided Python code to optimize its performance. You can help me by answering my questions. You can also ask me questions."  # Desired default prompt
 st.session_state.messages.append({"role": "user", "content": prompt})
 
 if prompt := st.chat_input("I'm James, how can I help you today?"):
@@ -122,3 +159,6 @@ if prompt := st.chat_input("I'm James, how can I help you today?"):
         combined_response = "\n".join(str(item) for item in full_response)
         st.session_state.messages.append(
             {"role": "assistant", "content": combined_response})
+
+# Call the sidebar assistant management function to render it
+sidebar_assistant_management()
