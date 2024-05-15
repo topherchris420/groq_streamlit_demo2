@@ -127,3 +127,15 @@ if prompt := st.chat_input("I'm James, how can I help you today?"):
             {"role": "assistant", "content": combined_response})
         st.session_state.messages.append(
             {"role": "assistant", "content": combined_response})
+
+def _get_system_prompt(self) -> str:
+        """
+        Reads the system prompt from a file.
+
+        Returns
+        -------
+        str
+            The system prompt.
+        """
+        with open("streamlit_app/system_prompt.txt", "r", encoding="utf-8") as file:
+            return file.read()
