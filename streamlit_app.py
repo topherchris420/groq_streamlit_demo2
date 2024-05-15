@@ -85,7 +85,7 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
 
-system_prompt = _get_system_prompt()
+system_prompt = get_system_prompt()
 prompt = system_prompt
 st.session_state.messages.append({"role": "user", "content": prompt})
 
