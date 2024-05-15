@@ -34,7 +34,7 @@ st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoratio
 st.subheader("Salve, sono Leonardo da Vinci📐. Iniziamo un viaggio di scoperta, dove i confini dell'immaginazione incontrano la precisione della scienza.", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
-st.image("images/kisspng-leonardo-da-vinci-portrait-art-computer-icons-clip-5b13c50b8802a9.7780784915280222835571.jpg", caption="What can I help you with?", width=200)
+st.image("images/Leonardo-legacy.png", caption="What can I help you with?", width=200)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
@@ -103,7 +103,7 @@ st.session_state.messages.append({"role": "user", "content": prompt})
 st.session_state.selected_model = None
 
 
-if prompt := st.chat_input("Hi! I'm James, your FurBuddy. How may I help you?", key="user_input"):
+if prompt := st.chat_input("Ciao", key="user_input"):
     st.session_state.messages.append({"role": "user", "content": prompt})
    
     # Process the user's input and respond accordingly
@@ -132,7 +132,7 @@ if prompt := st.chat_input("Hi! I'm James, your FurBuddy. How may I help you?", 
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(f"Oops! Something went wrong: {e}", icon="🐢🚨")
+        st.error(f"Oops! se seguirete i miei insegnamenti berrete un vino eccellente: {e}", icon="🐢🚨")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):
