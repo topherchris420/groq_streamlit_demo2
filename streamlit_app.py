@@ -3,6 +3,7 @@ from typing import Generator
 from groq import Groq
 import base64
 import os
+from typing import Optional, Dict, Union
 
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
                    page_title="Vers3Dynamics")
