@@ -8,8 +8,6 @@ from typing import Optional, Dict, Union
 
 def display_sidebar(self) -> None:
       ""
-      # Initially hide the sidebar
-st.experimental_hide_sidebar()
 
 # Show the sidebar when a button is clicked
 if st.button("Show Sidebar"):
