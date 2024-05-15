@@ -6,6 +6,9 @@ import os
 from typing import Optional, Dict, Union
 
 
+def display_sidebar(self) -> None:
+        ""
+
 def _get_system_prompt():
     current_dir = os.path.dirname(__file__)
     file_path = os.path.join(current_dir, "system_prompt.txt")
