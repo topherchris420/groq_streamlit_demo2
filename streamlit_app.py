@@ -6,8 +6,28 @@ import os
 from typing import Optional, Dict, Union
 
 
-def display_sidebar(self) -> None:
-      ""
+def sidebar_assistant_management(self) -> None:
+    """
+    Manages the assistant selection functionality in the sidebar.
+
+    This method allows the user to select an assistant from a dropdown menu.
+    The selected assistant is stored in the session state.
+
+    Returns:
+        None
+    """
+    if "assistants" not in st.session_state:
+        st.session_state.assistants = {
+            "Default Assistant": "Hello! I'm a default assistant. How can I help you today?"
+        }
+
+    selected_assistant: str = st.sidebar.selectbox(
+        "Select an Assistant:",
+        options=list(st.session_state.assistants.keys())
+    )
+
+    st.session_state['selected_assistant'] = selected_assistant
+
 
 def _get_system_prompt():
     current_dir = os.path.dirname(__file__)
