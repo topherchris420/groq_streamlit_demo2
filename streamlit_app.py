@@ -85,11 +85,11 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
 
-system_prompt = get_system_prompt()
+system_prompt = _get_system_prompt()
 prompt = system_prompt
 st.session_state.messages.append({"role": "user", "content": prompt})
 
-if prompt := st.chat_input("I'm James, how can I help you today?"):
+if prompt := st.chat_input(system_prompt, key="user_input"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("user", avatar='🧑🏾‍💻'):
