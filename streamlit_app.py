@@ -45,12 +45,12 @@ models = {
 col1, col2 = st.columns(2)
 
 with col1:
-            model_option = st.selectbox(
-                "Choose a model:",
-                options=list(self.models.keys()),
-                format_func=lambda x: self.models[x]["name"],
-                index=1
-            )
+    model_option = st.selectbox(
+        "Connect with the perfect AI:",
+        options=list(models.keys()),
+        format_func=lambda x: models[x]["name"],
+        index=4  # Default to Mixtral
+    )
 
 # Detect model change and clear chat history if model has changed
 if st.session_state.selected_model != model_option:
