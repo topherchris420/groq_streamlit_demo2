@@ -33,47 +33,49 @@ if "selected_model" not in st.session_state:
 # Define model details
 models = {
     "gemma-7b-it": {"name": "Gemma-7b-it", "tokens": 8192, "developer": "Google"},
-    "llama2-70b-4096": {"name": "LLaMA2-70b-chat", "tokens": 4096, "developer": "Meta"},
     "llama3-70b-8192": {"name": "LLaMA3-70b-8192", "tokens": 8192, "developer": "Meta"},
-    "llama3-8b-8192": {"name": "LLaMA3-8b-8192", "tokens": 8192, "developer": "Meta"},
-    "mixtral-8x7b-32768": {"name": "Mixtral-8x7b-Instruct-v0.1", "tokens": 32768, "developer": "Mistral"},
 }
 
 # Sidebar Assistant Management: Allows users to select and delete assistants
-def sidebar_assistant_management():
-    if "assistant_selectbox" not in st.session_state:
-        st.session_state.assistant_selectbox = st.sidebar.selectbox(
-            "Select an Assistant:",
-            options=list(st.session_state.assistants.keys()),
-            key="assistant_selectbox"
-        )
-    else:
-        st.session_state.assistant_selectbox = st.sidebar.selectbox(
-            "Select an Assistant:",
-            options=list(st.session_state.assistants.keys()),
-            key="assistant_selectbox",
-            index=st.session_state.assistant_selectbox
-        )
+def sidebar_assistant_management() -> None:
+    """
+    Manages the assistant selection and deletion functionality in the sidebar.
 
-    if st.session_state.assistant_selectbox:
-        st.session_state['selected_assistant'] = st.session_state.assistant_selectbox
+    This method allows the user to select an assistant from a dropdown menu and delete the selected assistant.
+    The selected assistant is stored in the session state.
+
+    Returns:
+        None
+    """
+    # Dropdown menu to select an assistant
+    selected_assistant = st.sidebar.selectbox(
+        "Select an Assistant:",
+        options=list(st.session_state.assistants.keys())
+    )
+    
+    st.session_state['selected_assistant'] = selected_assistant
 
     # Button to delete the selected assistant
     if st.sidebar.button("Delete Selected Assistant"):
-        if st.session_state.selected_assistant in st.session_state.assistants:
-            del st.session_state.assistants[st.session_state.selected_assistant]
-            st.sidebar.write(f"Assistant '{st.session_state.selected_assistant}' deleted successfully!")
+        if selected_assistant in st.session_state.assistants:
+            del st.session_state.assistants[selected_assistant]
+            st.sidebar.write(f"Assistant '{selected_assistant}' deleted successfully!")
         else:
             st.sidebar.write("No assistant selected or assistant not found!")
 
 # Initialize assistants if not present
 if "assistants" not in st.session_state:
-    st.session_state.assistants = { 
+    st.session_state.assistants = {
+        "Default": (
+            "Hello! I'm your helpful assistant, ready to assist you with any questions or tasks you have. "
+            "Whether you need information, advice, or just someone to chat with, I'm here to help. "
+            "Just let me know how I can assist you today!"
+        ),
         "Leonardo da Vinci": (
-            "Ciao! I'm Leonardo da Vinci, the Renaissance polymath and CTO of Vers3Dynamics. "
-            "I'm here to share my knowledge and wisdom on various subjects, from art and science to invention and philosophy. "
+            "Greetings! I am Leonardo da Vinci, the Renaissance polymath. "
+            "I am here to share my knowledge and wisdom on various subjects, from art and science to invention and philosophy. "
             "Ask me anything, and I shall do my best to enlighten you."
-        ), "IT Support": ("Let's fix this."),
+        ),
     }
 
 # Render the sidebar assistant management
@@ -83,29 +85,19 @@ sidebar_assistant_management()
 col1, col2 = st.columns(2)
 
 with col1:
-    if "model_selectbox" not in st.session_state:
-        st.session_state.model_selectbox = st.selectbox(
-            "Connect with the perfect AI:",
-            options=list(models.keys()),
-            format_func=lambda x: models[x]["name"],
-            index=4,  # Default to LLaMA3
-            key="model_selectbox"
-        )
-    else:
-        st.session_state.model_selectbox = st.selectbox(
-            "Connect with the perfect AI:",
-            options=list(models.keys()),
-            format_func=lambda x: models[x]["name"],
-            index=4,  # Default to LLaMA3
-            key="model_selectbox"
-        )
+    model_option = st.selectbox(
+        "Connect with the perfect AI:",
+        options=list(models.keys()),
+        format_func=lambda x: models[x]["name"],
+        index=4  # Default to LLaMA3
+    )
 
 # Detect model change and clear chat history if model has changed
-if st.session_state.selected_model != st.session_state.model_selectbox:
+if st.session_state.selected_model != model_option:
     st.session_state.messages = []
-    st.session_state.selected_model = st.session_state.model_selectbox
+    st.session_state.selected_model = model_option
 
-max_tokens_range = models[st.session_state.model_selectbox]["tokens"]
+max_tokens_range = models[model_option]["tokens"]
 
 with col2:
     max_tokens = st.slider(
@@ -141,7 +133,7 @@ if prompt := st.chat_input("I'm James, how can I help you today?"):
     # Fetch response from Groq API
     try:
         chat_completion = client.chat.completions.create(
-            model=st.session_state.model_selectbox,
+            model=model_option,
             messages=[
                 {
                     "role": m["role"],
