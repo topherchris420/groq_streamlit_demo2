@@ -18,7 +18,6 @@ def _get_system_prompt():
 
 system_prompt = _get_system_prompt()
 
-display_sidebar()
 
 
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
