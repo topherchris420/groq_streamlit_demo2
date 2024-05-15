@@ -90,7 +90,7 @@ def sidebar_assistant_management(self) -> None:
   Returns:
       None
   """
-  selected_assistant: str = st.sidebar.selectbox(
+  selected_assistant: str = st.sidebar.selectbox()
 
 
 
