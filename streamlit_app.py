@@ -5,6 +5,52 @@ from groq import Groq
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
                    page_title="Vers3Dynamics")
 
+def setup_prompts(self) -> None:
+        """
+        Sets up the prompts by reading them from the specified directory and initializing
+        the session state with default and custom assistant prompts.
+
+        If the "assistants" key is not present in the session state, it creates it with
+        a default assistant prompt and any additional prompts read from the directory.
+
+        Returns:
+            None
+        """
+        prompts: Dict[str, str] = self.read_prompts_from_directory(self.prompts_directory)
+        
+        if "assistants" not in st.session_state:
+            st.session_state.assistants = {
+                "Leonardo da Vinci": (
+                    "Hello! I'm your helpful assistant, ready to assist you with any questions or tasks you have. "
+                    "Whether you need information, advice, or just someone to chat with, I'm here to help. "
+                    "Just let me know how I can assist you today!"
+                ),
+                **prompts
+            }
+
+    def sidebar_assistant_management(self) -> None:
+        """
+        Manages the assistant selection and deletion functionality in the sidebar.
+
+        This method allows the user to select an assistant from a dropdown menu and delete the selected assistant.
+        The selected assistant is stored in the session state.
+
+        Returns:
+            None
+        """
+        selected_assistant: str = st.sidebar.selectbox(
+            "Select an Assistant:",
+            options=list(st.session_state.assistants.keys())
+        )
+        
+        st.session_state['selected_assistant'] = selected_assistant
+
+        if st.sidebar.button("Delete Selected Assistant"):
+            if selected_assistant in st.session_state.assistants:
+                del st.session_state.assistants[selected_assistant]
+                st.sidebar.write(f"Assistant '{selected_assistant}' deleted successfully!")
+            else:
+                st.sidebar.write("No assistant selected or assistant not found!")
 
 def icon(emoji: str):
     """Shows an emoji as a Notion-style page icon."""
