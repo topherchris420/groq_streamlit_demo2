@@ -49,7 +49,7 @@ with col1:
         "Connect with the perfect AI:",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
-        index=4  # Default to LLaMA3-70b-8192
+        index=4  # Default to LLaMA3
     )
 
 # Detect model change and clear chat history if model has changed
