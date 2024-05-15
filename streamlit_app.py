@@ -28,8 +28,7 @@ def setup_prompts(self) -> None:
                 **prompts
             }
 
-    def sidebar_assistant_management(self) -> None:
-        """
+    def sidebar_assistant_management(self) -> None: """
         Manages the assistant selection and deletion functionality in the sidebar.
 
         This method allows the user to select an assistant from a dropdown menu and delete the selected assistant.
