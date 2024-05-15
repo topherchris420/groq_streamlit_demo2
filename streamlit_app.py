@@ -9,11 +9,6 @@ from typing import Optional, Dict, Union
 def display_sidebar(self) -> None:
       ""
 
-# Show the sidebar when a button is clicked
-if st.button("Show Sidebar"):
-    st.experimental_show_sidebar()
-    display_sidebar()  # Call the function when needed
-
 def _get_system_prompt():
     current_dir = os.path.dirname(__file__)
     file_path = os.path.join(current_dir, "system_prompt.txt")
