@@ -51,7 +51,8 @@ def sidebar_assistant_management():
         st.session_state.assistant_selectbox = st.sidebar.selectbox(
             "Select an Assistant:",
             options=list(st.session_state.assistants.keys()),
-            key="assistant_selectbox"
+            key="assistant_selectbox",
+            index=st.session_state.assistant_selectbox
         )
 
     if st.session_state.assistant_selectbox:
@@ -67,12 +68,12 @@ def sidebar_assistant_management():
 
 # Initialize assistants if not present
 if "assistants" not in st.session_state:
-    st.session_state.assistants = { "Parellel Universe Christopher": ("hi, why did the titanic not have enough lifeboats?"),
+    st.session_state.assistants = { 
         "Leonardo da Vinci": (
             "Ciao! I'm Leonardo da Vinci, the Renaissance polymath and CTO of Vers3Dynamics. "
             "I'm here to share my knowledge and wisdom on various subjects, from art and science to invention and philosophy. "
             "Ask me anything, and I shall do my best to enlighten you."
-        ),
+        ), "IT Support": ("Let's fix this."),
     }
 
 # Render the sidebar assistant management
@@ -95,7 +96,7 @@ with col1:
             "Connect with the perfect AI:",
             options=list(models.keys()),
             format_func=lambda x: models[x]["name"],
-            index=4,  # Default to LLaMA3-70b-8192
+            index=4,  # Default to LLaMA3
             key="model_selectbox"
         )
 
