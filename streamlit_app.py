@@ -5,6 +5,18 @@ import base64
 import os
 from typing import Optional, Dict, Union
 
+def _get_system_prompt(self) -> str:
+        """
+        Reads the system prompt from a file.
+
+        Returns
+        -------
+        str
+            The system prompt.
+        """
+        with open("streamlit_app/system_prompt.txt", "r", encoding="utf-8") as file:
+            return file.read()
+
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
                    page_title="Vers3Dynamics")
 
@@ -128,17 +140,4 @@ if prompt := st.chat_input(system_prompt, key="user_input"):
             {"role": "assistant", "content": combined_response})
         st.session_state.messages.append(
             {"role": "assistant", "content": combined_response})
-
-
-def _get_system_prompt(self) -> str:
-        """
-        Reads the system prompt from a file.
-
-        Returns
-        -------
-        str
-            The system prompt.
-        """
-        with open("streamlit_app/system_prompt.txt", "r", encoding="utf-8") as file:
-            return file.read()
 
