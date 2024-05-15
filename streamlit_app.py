@@ -55,6 +55,45 @@ models = {
     "mixtral-8x7b-32768": {"name": "Mixtral-8x7b-Instruct-v0.1", "tokens": 32768, "developer": "Mistral"},
 }
 
+
+# Assistant Prompt Management (assuming these functions exist)
+def setup_prompts(self) -> None:
+  """
+  Sets up the prompts by reading them from the specified directory and initializing
+  the session state with default and custom assistant prompts.
+
+  If the "assistants" key is not present in the session state, it creates it with
+  a default assistant prompt and any additional prompts read from the directory.
+
+  Returns:
+      None
+  """
+  prompts: Dict[str, str] = self.read_prompts_from_directory(self.prompts_directory)
+  
+  if "assistants" not in st.session_state:
+    st.session_state.assistants = {
+        "Leonardo da Vinci": (
+            "Hello! I'm your helpful assistant, ready to assist you with any questions or tasks you have. "
+            "Whether you need information, advice, or just someone to chat with, I'm here to help. "
+            "Just let me know how I can assist you today!"
+        ),
+        **prompts
+    }
+
+def sidebar_assistant_management(self) -> None:
+  """
+  Manages the assistant selection functionality in the sidebar.
+
+  This method allows the user to select an assistant from a dropdown menu.
+  The selected assistant is stored in the session state.
+
+  Returns:
+      None
+  """
+  selected_assistant: str = st.sidebar.selectbox(
+
+
+
 # Layout for model selection and max_tokens slider
 col1, col2 = st.columns(2)
 
