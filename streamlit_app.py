@@ -98,6 +98,8 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
 
 system_prompt = _get_system_prompt()
 prompt = system_prompt
+st.session_state.messages.append({"role": "user", "content": prompt})
+st.session_state.selected_model = None
 
 
 if prompt := st.chat_input("", key="user_input"):
