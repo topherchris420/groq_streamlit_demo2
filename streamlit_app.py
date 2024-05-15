@@ -145,3 +145,16 @@ def _get_system_prompt(self) -> str:
         with open("streamlit_app/system_prompt.txt", "r", encoding="utf-8") as file:
             return file.read()
 
+system_prompt = self._get_system_prompt()
+        model_option = "llama3-70b-8192"
+        max_tokens = 8192
+        chat_completion = self.client.chat.completions.create(
+            model=model_option,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_input}
+            ],
+            max_tokens=max_tokens,
+            stream=True
+        )
+
