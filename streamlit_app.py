@@ -5,7 +5,7 @@ import base64
 import os
 from typing import Optional, Dict, Union
 
-def _get_system_prompt(self) -> str:
+def _get_system_prompt() -> str:
         """
         Reads the system prompt from a file.
 
