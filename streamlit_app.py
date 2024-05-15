@@ -10,7 +10,10 @@ def _get_system_prompt():
     current_dir = os.path.dirname(__file__)
     file_path = os.path.join(current_dir, "system_prompt.txt")
     with open(file_path, "r", encoding="utf-8") as file:
-        return file.read()
+        prompt = file.read()
+        return prompt
+
+system_prompt = _get_system_prompt()
 
 
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
@@ -97,8 +100,11 @@ system_prompt = _get_system_prompt()
 prompt = system_prompt
 st.session_state.messages.append({"role": "user", "content": prompt})
 
-if prompt := st.chat_input(system_prompt, key="user_input"):
+if prompt := st.chat_input("", key="user_input"):
     st.session_state.messages.append({"role": "user", "content": prompt})
+   
+    # Process the user's input and respond accordingly
+    # Use the system_prompt variable to guide the chatbot's responses
 
     with st.chat_message("user", avatar='🧑🏾‍💻'):
         st.markdown(prompt)
