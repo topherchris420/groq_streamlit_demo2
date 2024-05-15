@@ -5,17 +5,13 @@ import base64
 import os
 from typing import Optional, Dict, Union
 
-def _get_system_prompt() -> str:
-        """
-        Reads the system prompt from a file.
 
-        Returns
-        -------
-        str
-            The system prompt.
-        """
-        with open("streamlit_app/system_prompt.txt", "r", encoding="utf-8") as file:
-            return file.read()
+def _get_system_prompt():
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, "system_prompt.txt")
+    with open(file_path, "r", encoding="utf-8") as file:
+        return file.read()
+
 
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
                    page_title="Vers3Dynamics")
