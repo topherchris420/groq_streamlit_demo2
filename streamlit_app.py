@@ -90,7 +90,13 @@ def sidebar_assistant_management(self) -> None:
   Returns:
       None
   """
-  selected_assistant: str = st.sidebar.selectbox()
+  selected_assistant: str = st.sidebar.selectbox(
+      "Select an Assistant:",  # Add a title for the dropdown menu
+      options=list(st.session_state.assistants.keys())  # Use existing assistant names
+  )
+  
+  st.session_state['selected_assistant'] = selected_assistant
+
 
 
 
