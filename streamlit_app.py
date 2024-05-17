@@ -5,8 +5,6 @@ import os
 import spacy
 from typing import Optional, Dict, Union
 
-# Load spaCy model
-nlp = spacy.load("en_core_web_sm")
 
 def _get_system_prompt():
     current_dir = os.path.dirname(__file__)
