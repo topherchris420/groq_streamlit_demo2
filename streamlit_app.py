@@ -29,7 +29,7 @@ def icon(emoji: str):
 
 
 icon("🫀")
-st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>Leonardo da Vinci, Reimagined by Vers3Dynamics</h2></a>', unsafe_allow_html=True)
+st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #00C6C3;"><h2>Leonardo da Vinci, Reimagined by Vers3Dynamics</h2></a>', unsafe_allow_html=True)
 st.subheader("Salve, sono Leonardo da Vinci📐. Iniziamo un viaggio di scoperta, dove i confini dell'immaginazione incontrano la precisione della scienza.", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
