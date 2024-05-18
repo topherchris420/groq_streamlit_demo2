@@ -15,7 +15,7 @@ def _get_system_prompt():
 system_prompt = _get_system_prompt()
 
 
-st.set_page_config(page_icon="📐", layout="wide", page_title="Vers3Dynamics")
+st.set_page_config(page_icon="coast_chris.png", layout="wide", page_title="Vers3Dynamics")
 
 
 def icon(emoji: str):
@@ -28,7 +28,7 @@ def icon(emoji: str):
 
 icon("🧬")
 st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #00C6C3;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
-st.subheader("Meet Leonardo Da Vinci🫀, Powered by Groq 🚀", divider="rainbow", anchor=False)
+st.subheader("Meet Leonardo Da Vinci, Powered by Groq 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
 st.image("images/Leonardo-legacy.png", caption="Buongiorno!", width=200)
@@ -71,7 +71,7 @@ max_tokens_range = models[model_option]["tokens"]
 
 with col2:
     max_tokens = st.slider(
-        "Max Tokens 🎨:",
+        "Max Tokens 🪙:",
         min_value=512,
         max_value=max_tokens_range,
         value=min(32768, max_tokens_range),
@@ -82,7 +82,7 @@ with col2:
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
     if message["role"] != "system":  # Exclude system prompts from user view
-        avatar = '🧬' if message["role"] == "assistant" else '🧑🏾‍💻'
+        avatar = '🐶' if message["role"] == "assistant" else '🧑🏾‍💻'
         with st.chat_message(message["role"], avatar=avatar):
             st.markdown(message["content"])
 
@@ -118,7 +118,7 @@ if prompt := st.chat_input("Ciao", key="user_input"):
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🧬"):
+        with st.chat_message("assistant", avatar="🐶"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
