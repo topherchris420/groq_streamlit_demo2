@@ -28,7 +28,7 @@ st.markdown('<a href="https://visualverse.streamlit.app/" style="text-decoration
 st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 
 # Add a picture with a caption
-st.image("images/WelcomeHometitle.png", caption="Woof woof!", width=200)
+st.image("images/WelcomeHometitle.png", caption="Buongiorno", width=200)
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
