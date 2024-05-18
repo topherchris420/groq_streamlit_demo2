@@ -27,7 +27,7 @@ def icon(emoji: str):
 
 
 icon("🧬")
-st.markdown(f'<a href="https://christopher.streamlit.app/" style="text-decoration:none; color: #00C6C3;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
+st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #00C6C3;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
 st.subheader("Meet Leonardo Da Vinci🫀, Powered by Groq 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
