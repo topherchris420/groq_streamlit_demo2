@@ -15,9 +15,7 @@ def _get_system_prompt():
 system_prompt = _get_system_prompt()
 
 
-
-st.set_page_config(page_icon="coast_chris.png", layout="wide",
-                   page_title="Vers3Dynamics")
+st.set_page_config(page_icon="📐", layout="wide", page_title="Vers3Dynamics")
 
 
 def icon(emoji: str):
@@ -28,16 +26,14 @@ def icon(emoji: str):
     )
 
 
-icon("🫀")
-st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #00C6C3;"><h2>Leonardo da Vinci, Reimagined by Vers3Dynamics</h2></a>', unsafe_allow_html=True)
-st.subheader("sono Leonardo da Vinci📐. Iniziamo un viaggio di scoperta, dove i confini dell'immaginazione incontrano la precisione della scienza.", divider="rainbow", anchor=False)
+icon("🧬")
+st.markdown(f'<a href="https://christopher.streamlit.app/" style="text-decoration:none; color: #00C6C3;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
+st.subheader("Meet Leonardo Da Vinci🫀, Powered by Groq 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
-st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
+st.image("images/Leonardo-legacy.png", caption="Buongiorno!", width=200)
 
-client = Groq(
-    api_key=st.secrets["GROQ_API_KEY"],
-)
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # Initialize chat history and selected model
 if "messages" not in st.session_state:
@@ -85,9 +81,10 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🧬' if message["role"] == "assistant" else '🧑🏾‍💻'
-    with st.chat_message(message["role"], avatar=avatar):
-        st.markdown(message["content"])
+    if message["role"] != "system":  # Exclude system prompts from user view
+        avatar = '🧬' if message["role"] == "assistant" else '🧑🏾‍💻'
+        with st.chat_message(message["role"], avatar=avatar):
+            st.markdown(message["content"])
 
 
 def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
@@ -96,13 +93,7 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
 
-system_prompt = _get_system_prompt()
-prompt = system_prompt
-st.session_state.messages.append({"role": "user", "content": prompt})
-st.session_state.selected_model = None
-
-
-if prompt := st.chat_input("Ciao", key="user_input"):
+if prompt := st.chat_input("Hi, I'm James! how may I help you?", key="user_input"):
     st.session_state.messages.append({"role": "user", "content": prompt})
    
     # Process the user's input and respond accordingly
@@ -131,17 +122,12 @@ if prompt := st.chat_input("Ciao", key="user_input"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(f"Oops! se seguirete i miei insegnamenti berrete un vino eccellente: {e}", icon="🐢🚨")
+        st.error(f"Oops! Something went wrong: {e}", icon="🐢🚨")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):
-        st.session_state.messages.append(
-            {"role": "assistant", "content": full_response})
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
     else:
-        # Handle the case where full_response is not a string
         combined_response = "\n".join(str(item) for item in full_response)
-        st.session_state.messages.append(
-            {"role": "assistant", "content": combined_response})
-        st.session_state.messages.append(
-            {"role": "assistant", "content": combined_response})
-
+        st.session_state.messages.append({"role": "assistant", "content": combined_response})
+        st.session_state.messages.append({"role": "assistant", "content": combined_response})
