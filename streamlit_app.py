@@ -4,7 +4,6 @@ from groq import Groq
 import os
 from typing import Optional, Dict, Union
 
-
 def _get_system_prompt() -> str:
     """Get system prompt from a file."""
     current_dir = os.path.dirname(__file__)
@@ -12,10 +11,9 @@ def _get_system_prompt() -> str:
     with open(file_path, "r", encoding="utf-8") as file:
         return file.read()
 
-
 system_prompt = _get_system_prompt()
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = [{"role": "system", "content": system_prompt}]
 
 st.set_page_config(page_icon="📐", layout="wide", page_title="Vers3Dynamics")
 
@@ -31,7 +29,6 @@ st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
-
 
 if "selected_model" not in st.session_state:
     st.session_state.selected_model = None
@@ -78,8 +75,9 @@ with col2:
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
     avatar = '🧬' if message["role"] == "assistant" else '🧑🏾‍💻'
-    with st.chat_message(message["role"], avatar=avatar):
-        st.markdown(message["content"])
+    if message["role"] != "system":  # Do not display the system message
+        with st.chat_message(message["role"], avatar=avatar):
+            st.markdown(message["content"])
 
 def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
     """Yield chat response content from the Groq API response."""
