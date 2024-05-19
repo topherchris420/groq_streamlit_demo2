@@ -28,8 +28,16 @@ st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 # Add a picture with a caption
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
 
-# Add a video
-st.video("images/leo.mp4")  # Replace with your video URL or local file path
+# Add a video with custom size and loop
+st.markdown(
+    """
+    <video width="320" height="240" controls loop>
+        <source src="images/leo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    """,
+    unsafe_allow_html=True
+)
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
