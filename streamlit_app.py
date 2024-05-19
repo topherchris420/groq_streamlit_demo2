@@ -28,8 +28,6 @@ st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 # Add a picture with a caption
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
 
-# Add a video with custom size and loop
-st.video("images/leo.mp4") 
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
@@ -115,3 +113,7 @@ if prompt := st.chat_input("Ciao", key="user_input"):
     else:
         combined_response = "\n".join(str(item) for item in full_response)
         st.session_state.messages.append({"role": "assistant", "content": combined_response})
+
+# Add a video with custom size and loop
+st.video("images/leo.mp4") 
+
