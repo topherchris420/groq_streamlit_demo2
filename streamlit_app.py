@@ -29,7 +29,7 @@ st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
 
 # Add a video
-st.video("https://www.example.com/path/to/video.mp4")  # Replace with your video URL or local file path
+st.video("images/leo.mp4")  # Replace with your video URL or local file path
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
