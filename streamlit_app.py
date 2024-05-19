@@ -29,10 +29,12 @@ st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
 
 # Add a video with custom size and loop
+video_url = "images/leo.mp4"
 st.markdown(
-    """
-    <video width="320" height="240" controls loop>
+    f"""
+    <video width="320" height="240" controls loop autoplay muted>
         <source src="images/leo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
     """,
     unsafe_allow_html=True
