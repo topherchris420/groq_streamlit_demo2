@@ -26,7 +26,7 @@ st.markdown('<a href="https://groqhealth.streamlit.app/" style="text-decoration:
 st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 
 # Add a picture with a caption
-st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
+st.image("images/leo.mp4", caption="Buongiorno", width=200)
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
