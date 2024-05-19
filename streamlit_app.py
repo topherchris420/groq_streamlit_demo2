@@ -33,7 +33,6 @@ st.markdown(
     """
     <video width="320" height="240" controls loop>
         <source src="images/leo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
     """,
     unsafe_allow_html=True
