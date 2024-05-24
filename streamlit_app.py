@@ -1,8 +1,7 @@
 import streamlit as st
-from typing import Generator
+from typing import Generator, Optional, Dict, Union
 from groq import Groq
 import os
-from typing import Optional, Dict, Union
 
 def _get_system_prompt() -> str:
     """Get system prompt from a file."""
@@ -27,7 +26,6 @@ st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
 
 # Add a picture with a caption
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
-
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
@@ -57,7 +55,7 @@ with col1:
 # Detect model change and clear chat history if model has changed
 if st.session_state.selected_model != model_option:
     st.session_state.messages = [
-        { "role": "system", "content": system_prompt}
+        {"role": "system", "content": system_prompt}
     ]
     st.session_state.selected_model = model_option
 
@@ -115,5 +113,4 @@ if prompt := st.chat_input("Ciao", key="user_input"):
         st.session_state.messages.append({"role": "assistant", "content": combined_response})
 
 # Add a video with custom size and loop
-st.video("images/leo.mp4") 
-
+st.video("images/leo.mp4")
