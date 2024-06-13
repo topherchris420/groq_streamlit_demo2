@@ -46,7 +46,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     model_option = st.selectbox(
-        "Connect with the perfect AI:",
+        "🔥",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
         index=2  # Default to LLaMA
