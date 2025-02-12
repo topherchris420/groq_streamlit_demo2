@@ -30,13 +30,13 @@ def get_ai_explanation(state):
 def main():
     st.set_page_config(
         page_title="Vers3Dynamics Lab🔬",
-        page_icon="🚀",
+        page_icon="🐶",
         layout="wide",
         initial_sidebar_state="collapsed"
     )
 
-    st.title("Vers3Dynamics Quantum Supercomputing & Teleportation Explorer")
-    st.write("Unleash the power of the quantum! Let's explore qubits, superposition, entanglement, and even teleportation! 🌌")
+    st.title("Quantum Supercomputing & Teleportation Explorer")
+    st.write("James the AI Dog unleashes the power of the quantum! Let's explore qubits, superposition, entanglement, and even teleportation! 🌌")
 
     # --- Quantum Circuit Simulator ---
     st.header("⚛️ Quantum Circuit Simulator")
