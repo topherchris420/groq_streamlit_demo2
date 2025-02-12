@@ -57,8 +57,8 @@ def main():
         elif quantum_state == "collapsed":
             st.warning("Witness **collapse** - the moment quantum becomes definite! 🎯")
 
-    st.subheader("🤖 AI Quantum Explanation 🧠")
-    with st.spinner("Asking our AI Quantum Guru... 🧘‍♂️"): # Adding a spinner for loading effect
+    st.subheader("Quantum Explanation 🧠")
+    with st.spinner("Asking James the AI Dog... 🐶"): # Adding a spinner for loading effect
         time.sleep(1) # Simulate a bit of processing time for fun
         explanation = get_ai_explanation(quantum_state)
     st.info(explanation, icon="💡") # Using a lightbulb icon for info
@@ -81,11 +81,11 @@ def main():
 
     st.sidebar.header("About this Explorer ℹ️")
     st.sidebar.info(
-        "Quantum made easy (and fun)! Dive into supercomputing & teleportation with this interactive app."
+        "Quantum made easy (and fun)! Dive into supercomputing & teleportation with this interactive app." 
         "Powered by Vers3Dynamics. ⚛️"
     )
     st.sidebar.markdown("[Learn more about Quantum Computing](https://vers3dynamics.io/an-essay-towards-a-new-theory-of-ontological-fluidity-teleportation-and-the-mutable-foundations-of-reality)")
-    st.sidebar.markdown("[Explore Quantum Teleportation](https://vers3dynamics.io/)")
+    st.sidebar.markdown("[Explore More](https://visualverse.streamlit.app/)")
 
 if __name__ == "__main__":
     main()
