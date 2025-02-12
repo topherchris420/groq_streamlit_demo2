@@ -84,6 +84,7 @@ def main():
         "Quantum made easy (and fun)! Dive into supercomputing & teleportation with this interactive app." 
         "Powered by Vers3Dynamics. ⚛️"
     )
+    st.sidebar.audio("hello (1).mp3", format="audio/mp3", start_time=0)
     st.sidebar.markdown("[Learn more about Quantum Computing](https://vers3dynamics.io/an-essay-towards-a-new-theory-of-ontological-fluidity-teleportation-and-the-mutable-foundations-of-reality)")
     st.sidebar.markdown("[Explore More](https://visualverse.streamlit.app/)")
 
