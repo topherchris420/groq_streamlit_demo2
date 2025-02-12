@@ -35,7 +35,7 @@ def main():
         initial_sidebar_state="collapsed"
     )
 
-    st.title("Quantum Supercomputing & Teleportation Explorer")
+    st.title("Quantum Supercomputing & Teleportation Explorer🐶")
     st.write("James the AI Dog unleashes the power of the quantum! Let's explore qubits, superposition, entanglement, and even teleportation! 🌌")
 
     # --- Quantum Circuit Simulator ---
