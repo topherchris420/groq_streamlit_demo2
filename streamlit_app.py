@@ -81,12 +81,11 @@ def main():
 
     st.sidebar.header("About this Explorer ℹ️")
     st.sidebar.info(
-        "This interactive app is a simplified exploration of quantum supercomputing and teleportation concepts. "
-        "It's designed to be engaging and fun, not a precise simulation.  "
-        "Powered by Vers3Dynamics Quantum Division. ⚛️"
+        "Quantum made easy (and fun)! Dive into supercomputing & teleportation with this interactive app."
+        "Powered by Vers3Dynamics. ⚛️"
     )
-    st.sidebar.markdown("[Learn more about Quantum Computing](https://en.wikipedia.org/wiki/Quantum_computing)")
-    st.sidebar.markdown("[Explore Quantum Teleportation](https://en.wikipedia.org/wiki/Quantum_teleportation)")
+    st.sidebar.markdown("[Learn more about Quantum Computing](https://vers3dynamics.io/an-essay-towards-a-new-theory-of-ontological-fluidity-teleportation-and-the-mutable-foundations-of-reality)")
+    st.sidebar.markdown("[Explore Quantum Teleportation](https://vers3dynamics.io/)")
 
 if __name__ == "__main__":
     main()
