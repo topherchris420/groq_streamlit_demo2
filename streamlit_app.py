@@ -29,7 +29,7 @@ def get_ai_explanation(state):
 # Streamlit UI - Enhanced for Engagement and Fun
 def main():
     st.set_page_config(
-        page_title="🚀 Quantum Explorer 🔬",
+        page_title="Vers3Dynamics Lab🔬",
         page_icon="🚀",
         layout="wide",
         initial_sidebar_state="collapsed"
