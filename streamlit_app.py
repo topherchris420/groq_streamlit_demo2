@@ -37,7 +37,7 @@ def main():
 
     st.title("Quantum Supercomputing & Teleportation Explorer🐶")
     st.write("James the AI Dog unleashes the power of the quantum! Let's explore qubits, superposition, entanglement, and even teleportation! 🌌")
-    st.sidebar.audio("ElevenLabs_2025-02-16T06_54_38_Amanda_gen_s50_sb75_se0_b_m2.mp3", format="audio/mp3", start_time=0)    
+    st.write.audio("ElevenLabs_2025-02-16T06_54_38_Amanda_gen_s50_sb75_se0_b_m2.mp3", format="audio/mp3", start_time=0)    
 
     # --- Quantum Circuit Simulator ---
     st.header("⚛️ Quantum Circuit Simulator")
