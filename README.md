@@ -3,7 +3,7 @@
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://woodyard.streamlit.app/)
 
 
-This [Streamlit](https://streamlit.io/) app integrates with the [Groq API](https://groq.com/) to provide a chat interface where users can interact with advanced language models. It allows users to choose between two models for generating responses, enhancing the flexibility and user experience of the chat application.
+This [Streamlit](https://streamlit.io/) app integrates with [Vers3Dynamics](https://vers3dynamics.io/) to provide an engaging interface where users can interact with quantum experiments.
 
 It is blazing FAST; try it and see! 🏎️ 💨 💨 💨
 
