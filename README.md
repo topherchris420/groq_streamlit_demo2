@@ -1,11 +1,11 @@
-# Vers3Dynamics App
+# Quantum Supercomputing & Teleportation Explorer🐶
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://woodyard.streamlit.app/)
 
 
-This [Streamlit](https://streamlit.io/) app integrates with [Vers3Dynamics](https://vers3dynamics.io/) to provide an engaging interface where users can interact with quantum experiments.
+This [Streamlit](https://woodyard.streamlit.app/) app integrates with [Vers3Dynamics](https://vers3dynamics.io/) to provide an engaging interface where users can interact with quantum experiments.
 
-It is blazing FAST; try it and see! 🏎️ 💨 💨 💨
+It is blazing FUN; try it and see! 🏎️ 💨 💨 💨
 
 ## Features
 
