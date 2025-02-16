@@ -37,6 +37,7 @@ def main():
 
     st.title("Quantum Supercomputing & Teleportation Explorer🐶")
     st.write("James the AI Dog unleashes the power of the quantum! Let's explore qubits, superposition, entanglement, and even teleportation! 🌌")
+    st.sidebar.audio("ElevenLabs_2025-02-16T06_54_38_Amanda_gen_s50_sb75_se0_b_m2.mp3", format="audio/mp3", start_time=0)    
 
     # --- Quantum Circuit Simulator ---
     st.header("⚛️ Quantum Circuit Simulator")
@@ -87,7 +88,6 @@ def main():
     st.sidebar.audio("hello (1).mp3", format="audio/mp3", start_time=0)
     st.sidebar.markdown("[Learn more about Quantum Teleportation](https://vers3dynamics.io/an-essay-towards-a-new-theory-of-ontological-fluidity-teleportation-and-the-mutable-foundations-of-reality)")
     st.sidebar.markdown("[Donations](https://givebutter.com/h0CJIU)")
-    st.sidebar.audio("ElevenLabs_2025-02-16T06_54_38_Amanda_gen_s50_sb75_se0_b_m2.mp3", format="audio/mp3", start_time=0)    
-
+    
 if __name__ == "__main__":
     main()
