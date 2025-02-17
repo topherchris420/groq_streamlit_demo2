@@ -82,6 +82,7 @@ def main():
     st.sidebar.header("About Vers3Dynamics, the startup founded by Christopher Woodyard ℹ️")
     st.sidebar.info(
         "Quantum made easy (and fun)! Dive into supercomputing & teleportation with this interactive app." 
+        
         "Powered by Vers3Dynamics. ⚛️"
     )
     st.sidebar.audio("hello (1).mp3", format="audio/mp3", start_time=0)
