@@ -156,7 +156,7 @@ def main():
         st.session_state.measured_results = None
         st.toast(f"Switched to {st.session_state.num_qubits} qubits! Resetting state.", icon="⚙️")
         time.sleep(0.5) # Allow toast to show
-        st.experimental_rerun() # Rerun to update visuals immediately
+        st.rerun() # Rerun to update visuals immediately # <--- CORRECTED
 
     st.info(f"Working with **{st.session_state.num_qubits} qubits**. James says: '{'Woof!' * st.session_state.num_qubits}' 🐾")
 
@@ -196,7 +196,7 @@ def main():
             time.sleep(random.uniform(0.5, 1.5)) # Simulate measurement time
             st.session_state.measured_results = simulate_measurement(st.session_state.num_qubits, st.session_state.prepared_state)
             st.session_state.prepared_state = STATE_MEASURED # Update state to measured
-            st.experimental_rerun() # Rerun to show results immediately
+            st.rerun() # Rerun to show results immediately # <--- CORRECTED
 
     # --- Quantum Explanation ---
     st.subheader("🧠 James Explains...")
@@ -266,7 +266,7 @@ def main():
             st.error(f"💥 Teleportation Failed! Reason: {random.choice(failure_reasons)} Try rebuilding entanglement! 😔", icon="❌")
         # Rerun to update sidebar stats
         time.sleep(1) # Let user read the message
-        st.experimental_rerun()
+        st.rerun() # <--- CORRECTED
 
     elif teleport_button and not can_teleport:
         if st.session_state.num_qubits < 2:
