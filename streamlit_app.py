@@ -140,7 +140,7 @@ def main():
         st.markdown("[Learn about Quantum Teleportation](https://vers3dynamics.io/an-essay-towards-a-new-theory-of-ontological-fluidity-teleportation-and-the-mutable-foundations-of-reality)")
         st.markdown("[Wellness Coach](https://mnemosynehealth.streamlit.app)")
         st.divider()
-        st.caption("Created by Christopher")
+        st.caption("Have a great day today")
 
 
     # --- Quantum Circuit Simulator ---
