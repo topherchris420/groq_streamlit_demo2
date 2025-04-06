@@ -114,7 +114,7 @@ def main():
         st.markdown(" Unleash the power of the quantum with **James the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
     with col_logo:
          # Replace with an actual logo if you have one!
-         st.image("https://vers3dynamics.io/wp-content/uploads/2024/07/vers3dynamics-high-resolution-logo-transparent.png", width=150) # Placeholder for logo
+         st.image("obama.png", width=150) # Placeholder for logo
 
 
     st.divider()
@@ -140,7 +140,7 @@ def main():
         st.markdown("[Learn about Quantum Teleportation](https://vers3dynamics.io/an-essay-towards-a-new-theory-of-ontological-fluidity-teleportation-and-the-mutable-foundations-of-reality)")
         st.markdown("[Wellness Coach](https://mnemosynehealth.streamlit.app)")
         st.divider()
-        st.caption("App Enhanced by AI & Human Ingenuity!")
+        st.caption("Created by Christopher")
 
 
     # --- Quantum Circuit Simulator ---
