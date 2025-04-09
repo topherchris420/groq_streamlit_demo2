@@ -14,7 +14,7 @@ NO_STATE = "Qubits Initialized (|0⟩ state)"
 def get_ai_explanation(state_key: str) -> str:
     """
     Simulate AI-generated, more engaging explanations for quantum states,
-    with variations for fun. James the AI Dog reporting! 🐾
+    with variations for fun. Bo the AI Dog reporting! 🐾
     """
     explanations = {
         "superposition": [
@@ -89,7 +89,7 @@ def get_qubit_visualization(num_qubits: int, measured_results: Optional[List[str
 def main():
     st.set_page_config(
         page_title="Vers3Dynamics Quantum Lab🔬",
-        page_icon="🐶", # James the AI Dog!
+        page_icon="🐶", # Bo the AI Dog!
         layout="wide",
         initial_sidebar_state="expanded" # Keep sidebar open initially
     )
@@ -111,7 +111,7 @@ def main():
     col_title, col_logo = st.columns([4, 1])
     with col_title:
         st.title("Vers3Dynamics Quantum Lab 🔬")
-        st.markdown(" Unleash the power of the quantum with **James the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
+        st.markdown(" Unleash the power of the quantum with **Bo the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
     with col_logo:
          # Replace with an actual logo if you have one!
          st.image("obama.png", width=150) # Placeholder for logo
@@ -211,7 +211,7 @@ def main():
 
     # Use an expander for the explanation
     with st.expander(f"Learn about {state_to_explain}", expanded=(st.session_state.prepared_state != NO_STATE)):
-        with st.spinner("Asking James the AI Dog... 🐶 Woof woof..."):
+        with st.spinner("Asking Bo the AI Dog... 🐶 Woof woof..."):
             time.sleep(0.8) # Simulate AI thinking
             explanation = get_ai_explanation(state_to_explain)
         st.info(explanation, icon="💡")
