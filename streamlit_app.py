@@ -158,7 +158,7 @@ def main():
         time.sleep(0.5) # Allow toast to show
         st.rerun() # Rerun to update visuals immediately # <--- CORRECTED
 
-    st.info(f"Working with **{st.session_state.num_qubits} qubits**. James says: '{'Woof!' * st.session_state.num_qubits}' 🐾")
+    st.info(f"Working with **{st.session_state.num_qubits} qubits**. Bo says: '{'Woof!' * st.session_state.num_qubits}' 🐾")
 
     # --- State Preparation ---
     st.subheader("1. Prepare Quantum State")
