@@ -199,7 +199,7 @@ def main():
             st.rerun() # Rerun to show results immediately # <--- CORRECTED
 
     # --- Quantum Explanation ---
-    st.subheader("🧠 James Explains...")
+    st.subheader("🧠 Bo Explains...")
     # Determine which state concept to explain
     state_to_explain = st.session_state.prepared_state
     if state_to_explain == NO_STATE:
