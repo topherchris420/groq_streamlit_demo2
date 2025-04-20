@@ -114,7 +114,7 @@ def main():
         st.markdown(" Unleash the power of the quantum with **Bo the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
     with col_logo:
          # Replace with an actual logo if you have one!
-         st.image("quantum .png", width=150) # Placeholder for logo
+         st.image("quantum_is_here.jpg", width=150) # Placeholder for logo
 
 
     st.divider()
