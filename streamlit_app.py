@@ -111,7 +111,7 @@ def main():
     col_title, col_logo = st.columns([4, 1])
     with col_title:
         st.title("Vers3Dynamics Quantum Lab 🔬")
-        st.markdown(" Unleash the power of the quantum with **Bo the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
+        st.markdown(" Unleash the power of the quantum with Obama's **Bo the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
     with col_logo:
          # Replace with an actual logo if you have one!
          st.image("quantum_is_here.jpg", width=150) # Placeholder for logo
