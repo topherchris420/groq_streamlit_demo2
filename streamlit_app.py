@@ -88,7 +88,7 @@ def get_qubit_visualization(num_qubits: int, measured_results: Optional[List[str
 # --- Streamlit UI - Enhanced for Engagement and Fun ---
 def main():
     st.set_page_config(
-        page_title="R.A.I.N. Lab🔬",
+        page_title="Vers3Dynamics🔬",
         page_icon="🐶", # Bo the AI Dog!
         layout="wide",
         initial_sidebar_state="expanded" # Keep sidebar open initially
@@ -110,7 +110,7 @@ def main():
     # --- Header ---
     col_title, col_logo = st.columns([4, 1])
     with col_title:
-        st.title("Vers3Dynamics Quantum Lab 🔬")
+        st.title("R.A.I.N. Lab 🔬")
         st.markdown(" Unleash the power of the quantum with Obama's **Bo the AI Dog!** 🐶 Let's explore qubits, superposition, entanglement, and teleportation! 🌌")
     with col_logo:
          # Replace with an actual logo if you have one!
