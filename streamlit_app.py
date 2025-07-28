@@ -88,7 +88,7 @@ def get_qubit_visualization(num_qubits: int, measured_results: Optional[List[str
 # --- Streamlit UI - Enhanced for Engagement and Fun ---
 def main():
     st.set_page_config(
-        page_title="Vers3Dynamics Quantum Lab🔬",
+        page_title="R.A.I.N. Lab🔬",
         page_icon="🐶", # Bo the AI Dog!
         layout="wide",
         initial_sidebar_state="expanded" # Keep sidebar open initially
